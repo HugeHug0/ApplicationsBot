@@ -38,7 +38,6 @@ async def start_application_handler(message: Message, state: FSMContext):
 
     await ApplicationService.next(state, ApplicationForm.name, answer)
 
-
 @router.message(ApplicationForm.name, F.text)
 async def name_proces_handler(message: Message, state: FSMContext):
     answer = message.answer(service_application_message, reply_markup=service_application_keyboard())

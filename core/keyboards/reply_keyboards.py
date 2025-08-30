@@ -68,3 +68,12 @@ def confirm_application_keyboard():
                                    [KeyboardButton(text=text.home_btn)]
                                 ],
                                resize_keyboard=True)
+
+def file_application_keyboard():
+    return ReplyKeyboardMarkup(keyboard =
+                               [
+                                   [KeyboardButton(text=text.next_btn)],
+                                   [KeyboardButton(text=text.step_back_btn)],
+                                   [KeyboardButton(text=text.home_btn)]
+                                ],
+                               resize_keyboard=True)

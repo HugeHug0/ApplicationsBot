@@ -5,7 +5,7 @@ class ApplicationForm(StatesGroup):
     name = State()
     service = State()
     details = State()
-    file = State()
+    files = State()
     contact = State()
     username = State()
     phone_number = State()

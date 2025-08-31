@@ -175,7 +175,7 @@ async def confirm_application_handler(message: Message, state: FSMContext):
     elif message.text == confirm_application_btn:
         # Сюда можно добавить отправку данных куда-то (CRM, база и т.п.)
         await state.clear()  # Сбрасываем состояние после подтверждения
-        await message.answer(final_application_message, reply_markup=start_application_keyboard())
+        await message.answer(final_application_message, reply_markup=start_application_keyboard(), parse_mode='HTML')
 
 
 @router.message()

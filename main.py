@@ -1,5 +1,7 @@
 import asyncio
 import logging
+import os
+
 from aiohttp import web
 
 from aiogram import Bot, Dispatcher
@@ -28,7 +30,7 @@ async def main():
     app.router.add_get("/", handle)
     runner = web.AppRunner(app)
     await runner.setup()
-    site = web.TCPSite(runner, "0.0.0.0", 10000)  # порт 10000 можно любой свободный
+    site = web.TCPSite(runner, "0.0.0.0", int(os.environ.get("PORT", 10000)))
     await site.start()
     # -------------------
 

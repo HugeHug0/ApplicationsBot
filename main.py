@@ -1,7 +1,6 @@
 import asyncio
 import logging
 import os
-
 from aiohttp import web
 
 from aiogram import Bot, Dispatcher
@@ -34,8 +33,10 @@ async def main():
     await site.start()
     # -------------------
 
+    # запускаем параллельно polling и web-сервер
+    polling_task = asyncio.create_task(dp.start_polling(bot))
     try:
-        await dp.start_polling(bot)
+        await polling_task
     finally:
         await bot.session.close()
         await runner.cleanup()

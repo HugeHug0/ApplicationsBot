@@ -12,7 +12,7 @@ async def final_application_answer(message: Message, state: FSMContext):
     service = data.get('service')
     details = data.get('details')
     files = data.get('files')
-    contact = data.get('phone_number') or f'@{data.get('username')}'
+    contact = data.get('phone_number') or f'@{data.get("username")}'
 
 
     final_answer = f"""✅ Ваша заявка сформирована ✅

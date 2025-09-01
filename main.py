@@ -10,18 +10,14 @@ from core.settings import settings
 from core.handlers import basic_handlers, command_handlers
 
 
-async def main():
-    logging.basicConfig(level=logging.INFO)
+async def start_bot(bot: Bot, dp: Dispatcher):
+    try:
+        await dp.start_polling(bot)
+    finally:
+        await bot.session.close()
 
-    bot = Bot(token=settings.bots.bot_token, default=DefaultBotProperties(parse_mode='HTML'))
-    await bot.delete_webhook(drop_pending_updates=True)
 
-    dp = Dispatcher()
-    dp.include_router(basic_handlers.router)
-    dp.include_router(command_handlers.router)
-
-    # -------------------
-    # минимальный веб-сервер для Render
+async def start_web():
     async def handle(request):
         return web.Response(text="Bot is running!")
 
@@ -31,14 +27,27 @@ async def main():
     await runner.setup()
     site = web.TCPSite(runner, "0.0.0.0", int(os.environ.get("PORT", 10000)))
     await site.start()
-    # -------------------
+    return runner
 
-    # запускаем параллельно polling и web-сервер
-    polling_task = asyncio.create_task(dp.start_polling(bot))
+
+async def main():
+    logging.basicConfig(level=logging.INFO)
+
+    bot = Bot(token=settings.bots.bot_token, default=DefaultBotProperties(parse_mode="HTML"))
+    await bot.delete_webhook(drop_pending_updates=True)
+
+    dp = Dispatcher()
+    dp.include_router(basic_handlers.router)
+    dp.include_router(command_handlers.router)
+
+    runner = await start_web()
+
+    # Запускаем бот и сервер параллельно
+    bot_task = asyncio.create_task(start_bot(bot, dp))
+
     try:
-        await polling_task
+        await bot_task
     finally:
-        await bot.session.close()
         await runner.cleanup()
 
 

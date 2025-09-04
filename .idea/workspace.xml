@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1385b6b2-f1ba-4f23-967a-636b3f6d52fe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/filters/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/handlers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/handlers/basic_handlers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/handlers/command_handlers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/keyboards/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/keyboards/reply_keyboards.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/middlewares/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/services/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/services/application_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/utils/commands.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/utils/fsm_forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/utils/text.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/utils/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

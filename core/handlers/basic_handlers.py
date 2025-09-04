@@ -1,4 +1,5 @@
 from aiogram import Bot, Router, F
+from aiogram.filters import StateFilter
 from aiogram.types import Message
 
 from core.keyboards.reply_keyboards import name_application_keyboard, service_application_keyboard, \
@@ -178,6 +179,6 @@ async def confirm_application_handler(message: Message, state: FSMContext):
         await message.answer(final_application_message, reply_markup=start_application_keyboard(), parse_mode='HTML')
 
 
-@router.message()
+@router.message(StateFilter(None))
 async def start_application_handler(message: Message):
     await message.answer(text.start_command_message, reply_markup=start_application_keyboard())

@@ -34,11 +34,13 @@ async def stop_bot_handler(bot: Bot):
 # === Начало заявки ===
 @router.message(F.text == start_application_btn)
 async def start_application_handler(message: Message, state: FSMContext):
+    name = message.from_user.first_name
+    surname = message.from_user.last_name
     # Отправляем пользователю сообщение с запросом имени
     answer = message.answer(
         name_application_message,
-        reply_markup=name_application_keyboard(f'''{message.from_user.first_name}
-{message.from_user.last_name}''')
+        reply_markup=name_application_keyboard(f'''{name if name else ''}
+{surname if surname else ''}''')
     )
 
     await ApplicationService.next(state, ApplicationForm.name, answer)  # Сохраняем состояние "name" и ответ для истории

@@ -1,6 +1,5 @@
 from environs import Env
 from dataclasses import dataclass
-from typing import Set
 
 @dataclass()
 class Bots:  # Класс для хранения данных для бота
